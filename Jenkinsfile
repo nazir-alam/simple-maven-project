@@ -15,7 +15,7 @@ environment {
       stage("Build") {
 	steps {
 	   sh "mvn clean package"
-	   sh "mv target/*.war target/simple-maven-project.war"
+	   sh "mv target/*.jar target/my-app.jar"
 	}
       }
 
