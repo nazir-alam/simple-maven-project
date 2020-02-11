@@ -31,12 +31,12 @@ environment {
         }
 	stage("deploy") {
 	  steps {
-	   sshagent(['tomcat']) {
+	   sshagent(['RemoteCredentials']) {
 
 	   sh """
-		scp -o StrictHostKeyChecking=no target/simple-maven-project.war ec2-user@172.31.43.87:/opt/tomcat8/webapps/
-		ssh username@ip_address /opt/tomcat8/bin/shutdown.sh
-		ssh username@ip_address /opt/tomcat8/bin/start.sh
+		scp -o StrictHostKeyChecking=no target/my-app.jar ec2-user@172.31.43.87:/opt/tomcat8/webapps/
+		ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/shutdown.sh
+		ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/start.sh
 
 	      """
 	   }
