@@ -35,8 +35,8 @@ environment {
 
 	   sh """
 		scp -o StrictHostKeyChecking=no target/my-app.jar ec2-user@172.31.43.87:/opt/tomcat8/webapps/
-		ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/shutdown.sh
-		ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/start.sh
+		sudo ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/shutdown.sh
+		sudo ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/start.sh
 
 	      """
 	   }
