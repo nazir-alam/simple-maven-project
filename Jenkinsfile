@@ -31,7 +31,7 @@ environment {
         }
 	stage("deploy") {
 	  steps {
-	   sshagent(['RemoteCredentials']) {
+	   sshagent(['tomcat']) {
 
 	   sh """
 		scp -o StrictHostKeyChecking=no target/my-app.jar ec2-user@172.31.43.87:/opt/tomcat8/webapps/
