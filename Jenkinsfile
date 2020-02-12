@@ -34,7 +34,7 @@ environment {
 	   sshagent(['tomcat']) {
 
 	   sh """
-		scp -o StrictHostKeyChecking=no target/my-app.jar ec2-user@172.31.43.87:/opt/tomcat8/webapps/
+		sudo scp -o StrictHostKeyChecking=no target/my-app.jar ec2-user@172.31.43.87:/opt/tomcat8/webapps/
 		sudo ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/shutdown.sh
 		sudo ssh ec2-user@172.31.43.87 /opt/tomcat8/bin/start.sh
 
